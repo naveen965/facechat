@@ -17,27 +17,24 @@ exports.getScreams = functions.https.onRequest((req, res) => {
             data.forEach (doc => {
                 screams.push(doc.data());
             });
-            return res.json(screams);
+            return res.status(200).json(screams);
         })
         .catch(err => console.error(err));
 });
 
-exports.createScream = functions.https.onRequest((req, res) => {
+exports.createScream  = functions.https.onRequest((req, res) => {
     const newScream = {
         body: req.body.body,
         userHandle: req.body.userHandle,
         createdAt: admin.firestore.Timestamp.fromDate(new Date())
     };
 
-    admin
-        .firestore()
-        .collection('screams')
-        .add(newScream)
+    admin.firestore().collection('screams').add(newScream)
         .then((doc) => {
-            res.json({ message: `document ${doc.id} created successfully` });
+            res.status(200).json({ message: `document ${doc.id} created successfully` });
         })
         .catch((err) => {
-            res.status(500).json({ error: 'Somthing went wrong' });
+            res.status(500).json({ error: 'Something went wrong' });
             console.error(err);
         });
 });
