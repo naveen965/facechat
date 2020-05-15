@@ -84,10 +84,10 @@ app.post('/signup', (req, res) => {
             token = idToken;
             const userCredentials = {
                 handle: newUser.handle,
-                email: newUser.handle,
+                email: newUser.email,
                 createdAt: new Date().toISOString(),
                 userId
-            }
+            };
             return db.doc(`/users/${newUser.handle}`).set(userCredentials);
         })
         .then(() => {
