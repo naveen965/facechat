@@ -1,4 +1,4 @@
-const { db } = require('../util/admin');
+const { admin, db } = require('../util/admin');
 
 const firebaseConfig = require('../util/config');
 
@@ -105,5 +105,27 @@ exports.uploadImage = (req, res) => {
         imageFileName = `${Math.round(Math.random()*100000000000)}.${imageExtension}`;
         const filepath = path.join(os.tmpdir(), imageFileName);
         imageToBeUploaded = { filepath, mimetype };
+        file.pipe(fs.createWriteStream(filepath));
     });
-}
+    busboy.on('finish', () => {
+        admin.storage().bucket().upload(imageToBeUploaded.filepath, {
+            resumable: false,
+            metadata: {
+                metadata: {
+                    contentType: imageToBeUploaded.mimetype
+                }
+            }
+        })
+        .then(() => {
+            const imageUrl = `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${imageFileName}?alt=media`;
+            return db.doc(`/users/${req.user.handle}`).update({ imageUrl });
+        })
+        .then(() => {
+            return res.status(200).json({ message: 'Image uploaded Successfully' });
+        })
+        .catch((err) => {
+            console.error(err);
+            return res.status(500).json({ error: err.code });
+        });
+    });
+};
