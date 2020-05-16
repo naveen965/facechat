@@ -19,6 +19,8 @@ exports.signUp = (req, res) => {
 
     if (!valid) return res.status(400).json(errors);
 
+    const noImg = 'no-img.png';
+
     let token, userId;
 
     db.doc(`/users/${newUser.handle}`)
@@ -42,6 +44,7 @@ exports.signUp = (req, res) => {
                 handle: newUser.handle,
                 email: newUser.email,
                 createdAt: new Date().toISOString(),
+                imageUrl: `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${noImg}?alt=media`,
                 userId
             };
             return db.doc(`/users/${newUser.handle}`).set(userCredentials);
@@ -128,4 +131,5 @@ exports.uploadImage = (req, res) => {
             return res.status(500).json({ error: err.code });
         });
     });
+    busboy.end(req.rawBody);
 };
