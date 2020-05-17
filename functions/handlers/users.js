@@ -44,7 +44,9 @@ exports.signUp = (req, res) => {
                 handle: newUser.handle,
                 email: newUser.email,
                 createdAt: new Date().toISOString(),
-                imageUrl: `https://firebasestorage.googleapis.com/v0/b/${firebaseConfig.storageBucket}/o/${noImg}?alt=media`,
+                imageUrl: `https://firebasestorage.googleapis.com/v0/b/${
+                    firebaseConfig.storageBucket
+                }/o/${noImg}?alt=media`,
                 userId
             };
             return db.doc(`/users/${newUser.handle}`).set(userCredentials);
@@ -100,7 +102,7 @@ exports.uploadImage = (req, res) => {
     let imageFileName;
     let imageToBeUploaded = {};
 
-    busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
+    busboy.on('file', (fieldname, file, filename, mimetype) => {
         console.log(fieldname);
         console.log(filename);
         console.log(mimetype);
@@ -124,9 +126,9 @@ exports.uploadImage = (req, res) => {
             return db.doc(`/users/${req.user.handle}`).update({ imageUrl });
         })
         .then(() => {
-            return res.status(200).json({ message: 'Image uploaded Successfully' });
+            return res.json({ message: 'Image uploaded Successfully' });
         })
-        .catch((err) => {
+        .catch(err => {
             console.error(err);
             return res.status(500).json({ error: err.code });
         });
