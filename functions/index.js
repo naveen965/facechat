@@ -10,7 +10,7 @@ const { signUp, login, uploadImage, addUserDetails } = require('./handlers/users
 app.get('/screams', getAllScreams);
 app.post('/scream', FBauth, postOneScream);
 app.post('/user/image', FBauth, uploadImage);
-app.post('user', FBauth, addUserDetails);
+app.post('/user', FBauth, addUserDetails);
 
 app.post('/signup', signUp);
 app.post('/login', login);
