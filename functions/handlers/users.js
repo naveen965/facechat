@@ -5,7 +5,7 @@ const firebaseConfig = require('../util/config');
 const firebase = require('firebase');
 firebase.initializeApp(firebaseConfig);
 
-const { validateSignupData, validateLoginData } = require('../util/validators');
+const { validateSignupData, validateLoginData, reduceUserDetails } = require('../util/validators');
 
 exports.signUp = (req, res) => {
     const newUser = {
@@ -88,6 +88,19 @@ exports.login = (req, res) => {
             } else {
                 res.status(500).json({ error: err.code });
             }
+        });
+};
+
+exports.addUserDetails = (req, res) => {
+    let userDetails = reduceUserDetails(req.body);
+
+    db.doc(`/users/${req.user.handle}`).update(userDetails)
+        .then(() => {
+            return res.json({ message: 'Details added Successfully' });
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({ error: err.code });
         });
 };
 
