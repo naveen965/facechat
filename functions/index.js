@@ -2,7 +2,12 @@ const functions = require('firebase-functions');
 const app = require('express')();
 const FBauth = require('./util/fbAuth');
 
-const { getAllScreams, postOneScream, getScream } = require('./handlers/screams');
+const { 
+    getAllScreams,
+    postOneScream,
+    getScream, 
+    commentOnScream 
+} = require('./handlers/screams');
 const { 
     signUp, 
     login, 
@@ -17,6 +22,7 @@ app.post('/user/image', FBauth, uploadImage);
 app.post('/user', FBauth, addUserDetails);
 app.get('/user', FBauth, getAuthenticatedUser);
 app.get('/scream/:screamId', getScream);
+app.post('/scream/:screamId/comment', FBauth, commentOnScream)
 
 app.post('/signup', signUp);
 app.post('/login', login);
