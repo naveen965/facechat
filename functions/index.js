@@ -22,7 +22,9 @@ app.post('/user/image', FBauth, uploadImage);
 app.post('/user', FBauth, addUserDetails);
 app.get('/user', FBauth, getAuthenticatedUser);
 app.get('/scream/:screamId', getScream);
-app.post('/scream/:screamId/comment', FBauth, commentOnScream)
+app.post('/scream/:screamId/comment', FBauth, commentOnScream);
+// app.post('/scream/:screamId/like', FBauth, likeScream);
+// app.post('/scream/:screamId/unlike', FBauth, unlikeScream);
 
 app.post('/signup', signUp);
 app.post('/login', login);
