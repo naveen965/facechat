@@ -96,14 +96,14 @@ exports.commentOnScream = (req, res) => {
             }
             return doc.ref.update({ commentCount: doc.data().commentCount + 1 });
         })
-        .thenL(() => {
+        .then(() => {
             return db.collection('comments').add(newComment);
         })
         .then(() => {
             res.json(newComment);
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
             res.status(500).json({ error: 'Something went wrong' });
         });
 };
@@ -186,5 +186,27 @@ exports.unlikeScream = (req, res) => {
         .catch(err => {
             console.error(err);
             res.status(500).json({ error: err.code });
+        });
+};
+
+exports.deleteScream = (req, res) => {
+    const document = db.doc(`/screams/${req.params.screamId}`);
+    document.get()
+        .then(doc => {
+            if (!doc.exists) {
+                return res.status(404).json({ error: 'Scream not found' });
+            }
+            if (doc.data().userHandle !== req.user.handle) {
+                return res.status(403).json({ error: 'Unathorized' });
+            } else {
+                return document.delete();
+            }
+        })
+        .then(() => {
+            res.json({ message: 'Scream deleted Successfully' });
+        })
+        .catch(err => {
+            console.error(err);
+            return res.status(500).json({ error: err.code });
         });
 };
