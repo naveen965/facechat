@@ -13,19 +13,25 @@ const {
     unlikeScream,
     deleteScream
 } = require('./handlers/screams');
-const { 
-    signUp, 
-    login, 
-    uploadImage, 
-    addUserDetails, 
-    getAuthenticatedUser 
+const {
+    signUp,
+    login,
+    uploadImage,
+    addUserDetails,
+    getAuthenticatedUser,
+    getUserDetails,
+    markNotificationsRead
 } = require('./handlers/users');
 
-app.get('/screams', getAllScreams);
-app.post('/scream', FBauth, postOneScream);
 app.post('/user/image', FBauth, uploadImage);
 app.post('/user', FBauth, addUserDetails);
 app.get('/user', FBauth, getAuthenticatedUser);
+app.get('/user/:handle', getUserDetails);
+
+app.post('/notifications', FBauth, markNotificationsRead);
+
+app.get('/screams', getAllScreams);
+app.post('/scream', FBauth, postOneScream);
 app.get('/scream/:screamId', getScream);
 app.post('/scream/:screamId/comment', FBauth, commentOnScream);
 app.get('/scream/:screamId/like', FBauth, likeScream);
