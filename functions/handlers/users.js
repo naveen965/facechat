@@ -107,11 +107,14 @@ exports.addUserDetails = (req, res) => {
 
 exports.getUserDetails = (req, res) => {
     let userData = {};
-    db.doc(`/users/${req.params.handle}`).get()
+    db.doc(`/users/${req.params.handle}`)
+        .get()
         .then(doc => {
             if (doc.exists) {
                 userData.user = doc.data();
-                return db.collection('screams').where('userHandle', '==', req.params.handle)
+                return db
+                    .collection('screams')
+                    .where('userHandle', '==', req.params.handle)
                     .orderBy('createdAt', 'desc')
                     .get();
             } else {
@@ -123,7 +126,7 @@ exports.getUserDetails = (req, res) => {
             data.forEach(doc => {
                 userData.screams.push({
                     body: doc.data().body,
-                    createdAt: docdata().createdAt,
+                    createdAt: doc.data().createdAt,
                     userHandle: doc.data().userHandle,
                     userImage: doc.data().userImage,
                     likeCount: doc.data().likeCount,
@@ -225,8 +228,8 @@ exports.uploadImage = (req, res) => {
 
 exports.markNotificationsRead = (req, res) => {
     let batch = db.batch();
-    res.body.forEach(notification => {
-        const notification = db.doc(`/notifications/${notificationsId}`);
+    req.body.forEach(notificationId => {
+        const notification = db.doc(`/notifications/${notificationId}`);
         batch.update(notification, { read: true });
     });
     batch.commit()
