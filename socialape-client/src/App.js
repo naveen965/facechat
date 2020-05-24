@@ -5,12 +5,14 @@ import './App.css';
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
+import Navbar from './comments/navbar';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Router>
+          <Navbar/>
           <Switch>
             <Route exact path="/" component={home}/>
             <Route exact path="/login" component={login}/>
