@@ -1,11 +1,31 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Grid from '@material-ui/core/Grid';
+import Axios from 'axios';
 
 class home extends Component {
+    state = {
+        screams: null
+    }
+    componentDidMount () {
+        Axios.get('/screams')
+            .then(res => {
+                console.log(res.data)
+                this.setState({
+                    screams: res.data
+                })
+            })
+            .catch(err => console.log(err));
+    }
     render() {
         return (
-            <div>
-                <h1>Home page</h1>  
-            </div>
+            <Grid container spacing={16}>
+                <Grid item sm={8} xs={12}>
+                    <p>Content...</p>
+                </Grid>
+                <Grid item sm={4} xs={12}>
+                    <p>Profile...</p>
+                </Grid>
+            </Grid>
         )
     }
 }
