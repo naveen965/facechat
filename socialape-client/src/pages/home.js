@@ -8,7 +8,8 @@ class home extends Component {
         screams: null
     };
     componentDidMount () {
-        axios.get('/screams')
+        axios
+            .get('/screams')
             .then(res => {
                 console.log(res.data);
                 this.setState({
@@ -21,7 +22,7 @@ class home extends Component {
     }
     render() {
         let recentScreamsMarkup = this.state.screams ? (
-            this.state.screams.map(scream => <Scream scream={scream}/>)
+            this.state.screams.map((scream) => <Scream scream={scream} />)
         ) : (
             <p>Loding...</p>
         );

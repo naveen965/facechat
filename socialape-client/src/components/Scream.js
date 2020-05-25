@@ -13,7 +13,18 @@ const styles = {
 
 class Scream extends Component {
     render() {
-        const { classes, scream : { body, createdAt, userImage, userHandle, screamId, likeCount, commentCount } } = this.props;
+        const {
+            classes,
+            scream : {
+                body,
+                createdAt,
+                userImage,
+                userHandle,
+                screamId,
+                likeCount,
+                commentCount
+            }
+        } = this.props;
         return (
             <Card>
                 <CardMedia image={userImage} title="Profile image"/>
@@ -23,7 +34,7 @@ class Scream extends Component {
                     <Typography variant="body1">{body}</Typography>
                 </CardContent>
             </Card>
-        )
+        );
     }
 }
 
