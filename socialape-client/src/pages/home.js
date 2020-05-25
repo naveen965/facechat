@@ -10,13 +10,13 @@ class home extends Component {
     componentDidMount () {
         axios
             .get('/screams')
-            .then(res => {
+            .then((res) => {
                 console.log(res.data);
                 this.setState({
                     screams: res.data
                 });
             })
-            .catch(err => {
+            .catch((err) => {
                 console.log(err);
             });
     }
@@ -27,7 +27,7 @@ class home extends Component {
             <p>Loding...</p>
         );
         return (
-            <Grid container spacing={16}>
+            <Grid container spacing={10}>
                 <Grid item sm={8} xs={12}>
                     {recentScreamsMarkup}
                 </Grid>
