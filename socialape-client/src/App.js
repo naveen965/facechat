@@ -7,7 +7,7 @@ import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
-import Navbar from './comments/navbar';
+import Navbar from './components/navbar';
 
 const theme = createMuiTheme ({
   palette: {
@@ -23,6 +23,21 @@ const theme = createMuiTheme ({
       dark: '#b22a00',
       contrastText: '#fff'
     }
+  },
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
   },
 })
 
