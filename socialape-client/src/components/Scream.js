@@ -4,6 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 const styles = {
     card: {
@@ -29,9 +30,9 @@ class Scream extends Component {
             <Card>
                 <CardMedia image={userImage} title="Profile image"/>
                 <CardContent>
-                    <Typography variant="h5">{userHandle}</Typography>
-                    <Typography variant="body2" color="textSecondary">{createdAt}</Typography>
+                    <Typography variant="h5" component={Link} to={`/users/${userHandle}`}>{userHandle}</Typography>
                     <Typography variant="body1">{body}</Typography>
+                    <Typography variant="body2" color="textSecondary">{createdAt}</Typography>
                 </CardContent>
             </Card>
         );
