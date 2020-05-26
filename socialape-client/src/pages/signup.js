@@ -10,36 +10,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = {
-    form: {
-        textAlign: 'center',
-    },
-    image: {
-        margin: '20px auto 20px auto'
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
-    button: {
-        width: '100%',
-        marginTop: 20,
-        position: 'relative'
-    },
-    TextField: {
-        margin: '10px auto 10px auto'
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-    },
-    progress: {
-        position: 'absolute'
-    },
-    smll: {
-        marginTop: 20,
-    }
-};
+const styles = (theme) => ({
+    ...theme
+});
 
 class signup extends Component {
     constructor () {
@@ -47,6 +20,8 @@ class signup extends Component {
         this.state = {
             email: '',
             password: '',
+            confiremPassword: '',
+            handle: '',
             loading: false,
             errors: {}
         }
@@ -57,13 +32,16 @@ class signup extends Component {
         this.setState({
             loading: true
         });
-        const userData = {
+        const newUserData = {
             email: this.state.email,
-            password: this.state.password
-        }
+            password: this.state.password,
+            confiremPassword: this.state.confiremPassword,
+            handle: this.state.handle
+        };
         axios.post('/login', userData)
             .then(res => {
                 console.log(res.data);
+                localStorage.setItem('FBIdToken', `Bearer &{res.data.token}`);
                 this.setState({
                     loading: false
                 });
