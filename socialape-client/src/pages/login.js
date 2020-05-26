@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const styles = {
     form: {
@@ -20,10 +22,22 @@ const styles = {
     },
     button: {
         width: '100%',
-        marginTop: 20
+        marginTop: 20,
+        position: 'relative'
     },
     TextField: {
         margin: '10px auto 10px auto'
+    },
+    customError: {
+        color: 'red',
+        fontSize: '0.8rem',
+        marginTop: 10
+    },
+    progress: {
+        position: 'absolute'
+    },
+    smll: {
+        marginTop: 20,
     }
 };
 
@@ -57,7 +71,7 @@ class login extends Component {
             })
             .catch(err => {
                 this.setState({
-                    errors: err.reponse.data,
+                    errors: err.response.data,
                     loading: false
                 })
             })
@@ -93,10 +107,22 @@ class login extends Component {
                             error={errors.password ? true : false}
                             value={this.state.password}
                             onChange={this.handleChange} fullWidth/>
+                        {errors.general && (
+                            <Typography variant="body2" className={classes.customError}>
+                                {errors.general}
+                            </Typography>
+                        )}
                         <Button type="submit" variant="contained" color="primary"
-                            className={classes.button}>
+                            className={classes.button}
+                            disabled={loading}
+                        >
                                 Login
+                                {loading && (
+                                    <CircularProgress size={30} className={classes.progress}/>
+                                )}
                             </Button>
+                        <br/>
+                        <small className={classes.smll}>don't have an account ? sign up <Link to="/signup">here</Link></small>
                     </form>
                 </Grid>
                 <Grid item sm/>
