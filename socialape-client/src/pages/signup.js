@@ -38,7 +38,7 @@ class signup extends Component {
             confiremPassword: this.state.confiremPassword,
             handle: this.state.handle
         };
-        axios.post('/login', userData)
+        axios.post('/signup', newUserData)
             .then(res => {
                 console.log(res.data);
                 localStorage.setItem('FBIdToken', `Bearer &{res.data.token}`);
@@ -52,7 +52,7 @@ class signup extends Component {
                     errors: err.response.data,
                     loading: false
                 })
-            })
+            });
     }
 
     handleChange = (event) => {
@@ -70,7 +70,7 @@ class signup extends Component {
                 <Grid item sm>
                     <img src={Appicon} alt="user" className={classes.image}/>
                     <Typography variant="h2" className={classes.pageTitle}>
-                        Login
+                        Signup
                     </Typography>
                     <form noValidate onSubmit={this.handleSubmit}>
                         <TextField id="email" name="email" type="email" label="Email"
@@ -85,6 +85,18 @@ class signup extends Component {
                             error={errors.password ? true : false}
                             value={this.state.password}
                             onChange={this.handleChange} fullWidth/>
+                        <TextField id="confiremPassword" name="confiremPassword" type="password" label="Confirm Password"
+                            className={classes.TextField}
+                            helperText={errors.confiremPassword}
+                            error={errors.confiremPassword ? true : false}
+                            value={this.state.confiremPassword}
+                            onChange={this.handleChange} fullWidth/>
+                        <TextField id="handle" name="handle" type="text" label="Handle"
+                            className={classes.TextField}
+                            helperText={errors.handle}
+                            error={errors.handle ? true : false}
+                            value={this.state.handle}
+                            onChange={this.handleChange} fullWidth/>
                         {errors.general && (
                             <Typography variant="body2" className={classes.customError}>
                                 {errors.general}
@@ -94,13 +106,13 @@ class signup extends Component {
                             className={classes.button}
                             disabled={loading}
                         >
-                                Login
+                                Signup
                                 {loading && (
                                     <CircularProgress size={30} className={classes.progress}/>
                                 )}
                             </Button>
                         <br/>
-                        <small className={classes.smll}>don't have an account ? sign up <Link to="/signup">here</Link></small>
+                        <small className={classes.smll}>Already have an account ? login <Link to="/login">here</Link></small>
                     </form>
                 </Grid>
                 <Grid item sm/>
