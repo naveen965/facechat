@@ -39,34 +39,6 @@ const theme = createMuiTheme ({
       '"Segoe UI Symbol"',
     ].join(','),
   },
-  form: {
-    textAlign: 'center',
-  },
-  image: {
-      margin: '20px auto 20px auto'
-  },
-  pageTitle: {
-      margin: '10px auto 10px auto'
-  },
-  button: {
-      width: '100%',
-      marginTop: 20,
-      position: 'relative'
-  },
-  TextField: {
-      margin: '10px auto 10px auto'
-  },
-  customError: {
-      color: 'red',
-      fontSize: '0.8rem',
-      marginTop: 10
-  },
-  progress: {
-      position: 'absolute'
-  },
-  smll: {
-      marginTop: 20,
-  }
 })
 
 class App extends Component {
