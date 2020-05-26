@@ -10,9 +10,36 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const styles = (theme) => ({
-    ...theme
-});
+const styles = {
+    form: {
+        textAlign: 'center',
+      },
+      image: {
+          margin: '20px auto 20px auto'
+      },
+      pageTitle: {
+          margin: '10px auto 10px auto'
+      },
+      button: {
+          width: '100%',
+          marginTop: 20,
+          position: 'relative'
+      },
+      TextField: {
+          margin: '10px auto 10px auto'
+      },
+      customError: {
+          color: 'red',
+          fontSize: '0.8rem',
+          marginTop: 10
+      },
+      progress: {
+          position: 'absolute'
+      },
+      smll: {
+          marginTop: 20,
+      }
+}
 
 class signup extends Component {
     constructor () {
@@ -112,7 +139,9 @@ class signup extends Component {
                                 )}
                             </Button>
                         <br/>
-                        <small className={classes.smll}>Already have an account ? login <Link to="/login">here</Link></small>
+                        <div  className={classes.smll}>
+                            <small>Already have an account ? <Link to="/login">login here</Link></small>
+                        </div>
                     </form>
                 </Grid>
                 <Grid item sm/>

@@ -33,7 +33,7 @@ class login extends Component {
         const userData = {
             email: this.state.email,
             password: this.state.password
-        }
+        };
         axios.post('/login', userData)
             .then(res => {
                 console.log(res.data);
@@ -48,7 +48,7 @@ class login extends Component {
                     errors: err.response.data,
                     loading: false
                 })
-            })
+            });
     }
 
     handleChange = (event) => {
@@ -96,7 +96,9 @@ class login extends Component {
                                 )}
                             </Button>
                         <br/>
-                        <small className={classes.smll}>don't have an account ? sign up <Link to="/signup">here</Link></small>
+                        <div className={classes.smll}>
+                            <small>don't have an account ? <Link to="/signup">sign up here</Link></small>
+                        </div>
                     </form>
                 </Grid>
                 <Grid item sm/>
