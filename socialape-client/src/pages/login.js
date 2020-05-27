@@ -47,16 +47,12 @@ class login extends Component {
         this.state = {
             email: '',
             password: '',
-            loading: false,
             errors: {}
         }
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        this.setState({
-            loading: true
-        });
         const userData = {
             email: this.state.email,
             password: this.state.password
