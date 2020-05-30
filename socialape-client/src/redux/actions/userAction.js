@@ -49,7 +49,7 @@ export const getUserData = () => (dispatch) => {
             dispatch({
                 type: SET_USER,
                 payload: res.data
-            })
+            });
         })
         .catch(err => {
             console.log(err);
@@ -57,7 +57,7 @@ export const getUserData = () => (dispatch) => {
 }
 
 const setAuthorizationHeader = (token) => {
-    const FBIdToken = `Bearer ${res.data.token}`;
+    const FBIdToken = `Bearer ${token}`;
     localStorage.setItem('FBIdToken', FBIdToken);
     axios.defaults.headers.common['Authorization'] = FBIdToken;
 }
