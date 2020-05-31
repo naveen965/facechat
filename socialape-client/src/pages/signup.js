@@ -147,11 +147,15 @@ signup.propTypes = {
     user: PropTypes.object.isRequired,
     UI: PropTypes.object.isRequired,
     signupUser: PropTypes.func.isRequired
-}
+};
 
 const mapStateToProps = (state) => ({
     user: state.user,
     UI: state.UI
-})
+});
 
-export default connect(mapStateToProps, { signupUser })(withStyles(styles)(signup));
+const mapActionsToProps = {
+    signupUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(signup));
