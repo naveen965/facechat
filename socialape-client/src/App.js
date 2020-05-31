@@ -17,7 +17,7 @@ import Navbar from './components/navbar';
 const theme = createMuiTheme (themeFile);
 
 let authenticated;
-const token = localStorage.getItem("FBIdToken");
+const token = localStorage.getItem('FBIdToken');
 if (token) {
   const decodedToken = jwtDecode(token);
   if (decodedToken.exp * 1000 < Date.now()) {
