@@ -4,7 +4,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux';
-import { Paper, IconButton } from '@material-ui/core'; // ThemeProvider, 
+import { Paper, IconButton, Tooltip } from '@material-ui/core'; // ThemeProvider, 
 import { Link } from 'react-router-dom';
 import MuiLink from '@material-ui/core/Link';
 import LocationOn from '@material-ui/icons/LocationOn';
@@ -84,9 +84,11 @@ class Profile extends Component {
                     <div className="image-wrapper">
                         <img src={imageUrl} alt="profile" className="profile-image"/>
                         <input type="file" id="imageInput" hidden="hidden" onChange={this.handleImageChange}/>
-                        <IconButton onClick={this.handleEditPicture} className="button">
-                            <EditIcon color="primary"/>
-                        </IconButton>
+                        <Tooltip title="Edit Profile Picture" placement="top">
+                            <IconButton onClick={this.handleEditPicture} className="button">
+                                <EditIcon color="primary"/>
+                            </IconButton>
+                        </Tooltip>
                     </div>
                     <hr/>
                     <div className="profile-details">
