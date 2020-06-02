@@ -12,6 +12,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import CalendarToday from '@material-ui/icons/CalendarToday';
 import dayjs from 'dayjs';
 import EditIcon from '@material-ui/icons/Edit';
+import { logoutUser, uploadImage } from '../redux/actions/userAction';
 
 const styles = (theme) => ({
     paper: {
