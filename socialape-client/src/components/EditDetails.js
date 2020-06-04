@@ -14,7 +14,7 @@ import {
     DialogContentText,
     DialogTitle
 } from '@material-ui/core';
-import EditIcon from '@material-ui/iconsEdit';
+import EditIcon from '@material-ui/icons/Edit';
 
 const styles = (theme) => ({
     ...theme
@@ -27,6 +27,13 @@ class EditDetails extends Component {
         location: '',
         open: false
     };
+    mapUserDetailsToState = (credentials) => {
+        this.setState({
+            bio: credentials.bio ? credentials.bio : '',
+            website: credentials.website ? credentials.website : '',
+            location: credentials.location ? credentials.location : '',
+        });
+    };
     handleOpen = () => {
         this.setState({ open: true });
         this.mapUserDetailsToState(this.props.credentials);
@@ -38,18 +45,20 @@ class EditDetails extends Component {
         const { credentials } = this.props;
         this.mapUserDetailsToState(credentials);
     };
-    mapUserDetailsToState = (credentials) => {
-        this.setState({
-            bio: credentials.bio ? credentials.bio : '',
-            website: credentials.website ? credentials.website : '',
-            location: credentials.location ? credentials.location : '',
-        });
-    };
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     };
+    handleSubmit = () => {
+        const userDetails = {
+            bio: this.state.bio,
+            website: this.state.website,
+            location: this.state.location,
+        };
+        this.props.editUserDetails(userDetails);
+        this.handleClose();
+    }
     render() {
             const { classes } = this.props;
         return (
