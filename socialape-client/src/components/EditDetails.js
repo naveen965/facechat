@@ -61,6 +61,9 @@ const styles = (theme) => ({
         '& a': {
             margin: '20px 10px'
         }
+    },
+    button: {
+        float: 'right'
     }
 })
 
