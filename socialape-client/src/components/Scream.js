@@ -14,6 +14,7 @@ import MyButton from '../util/MyButton';
 import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FavoriteBorder } from '@material-ui/icons';
+import DeleteScream from '../components/DeleteScream';
 
 const styles = {
     card: {
@@ -55,12 +56,13 @@ class Scream extends Component {
                 createdAt,
                 userImage,
                 userHandle,
-                // screamId,
+                screamId,
                 likeCount,
                 commentCount
             },
             user: {
-                authenticated
+                authenticated,
+                credentials: { handle }
             }
         } = this.props;
         const likeButton = !authenticated ? (
@@ -80,19 +82,23 @@ class Scream extends Component {
                 </MyButton>
             )
         );
+        const deleteButton = authenticated && userHandle ===handle ? (
+            <DeleteScream screamId={screamId}/>
+        ) : null
         return (
             <Card className={classes.card}>
                 <CardMedia image={userImage} title="Profile image" className={classes.image}/>
                 <CardContent className={classes.content}>
                     <Typography variant="h5" component={Link} to={`/users/${userHandle}`} color="primary">{userHandle}</Typography>
-                    <Typography variant="body1">{body}</Typography>
+                    {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).fromNow()}</Typography>
+                    <Typography variant="body1">{body}</Typography>
                     {likeButton}
                     <span>{likeCount} Likes</span>
                     <MyButton tip="comments">
                         <ChatIcon color="primary"/>
                     </MyButton>
-        <span>{commentCount} Comments</span>
+                    <span>{commentCount} Comments</span>
                 </CardContent>
             </Card>
         );
