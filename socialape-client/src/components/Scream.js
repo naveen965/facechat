@@ -14,7 +14,7 @@ import MyButton from '../util/MyButton';
 import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FavoriteBorder } from '@material-ui/icons';
-import DeleteScream from '../components/DeleteScream';
+import DeleteScream from './DeleteScream';
 
 const styles = {
     card: {
@@ -82,9 +82,9 @@ class Scream extends Component {
                 </MyButton>
             )
         );
-        const deleteButton = authenticated && userHandle ===handle ? (
+        const deleteButton = authenticated && userHandle === handle ? (
             <DeleteScream screamId={screamId}/>
-        ) : null
+        ) : null;
         return (
             <Card className={classes.card}>
                 <CardMedia image={userImage} title="Profile image" className={classes.image}/>
