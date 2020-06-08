@@ -200,7 +200,7 @@ exports.deleteScream = (req, res) => {
                 return res.status(404).json({ error: 'Scream not found' });
             }
             if (doc.data().userHandle !== req.user.handle) {
-                return res.status(403).json({ error: 'Unathorized' });
+                return res.status(403).json({ error: 'Unauthorized' });
             } else {
                 return document.delete();
             }
