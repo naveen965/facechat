@@ -8,13 +8,13 @@ export const getScreams = () => dispatch => {
             dispatch({
                 type: SET_SCREAMS,
                 payload: res.data
-            })
+            });
         })
         .catch(err => {
             dispatch({
                 type: SET_SCREAMS,
                 payload: []
-            })
+            });
         });
 };
 

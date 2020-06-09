@@ -82,11 +82,9 @@ class Scream extends Component {
                 </MyButton>
             )
         );
-        const deleteButton = authenticated && userHandle ? (
+        const deleteButton = authenticated && userHandle === handle ? (
             <DeleteScream screamId={screamId}/>
-        ) : (
-            <div>Lo</div>
-        );
+        ) : null;
         return (
             <Card className={classes.card}>
                 <CardMedia image={userImage} title="Profile image" className={classes.image}/>
