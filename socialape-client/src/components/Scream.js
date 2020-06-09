@@ -18,6 +18,7 @@ import DeleteScream from './DeleteScream';
 
 const styles = {
     card: {
+        position: 'relative',
         display: 'flex',
         marginBottom: 20,
     },
