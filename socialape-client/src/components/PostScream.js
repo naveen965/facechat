@@ -19,7 +19,11 @@ const styles = {
 }
 
 class PostScream extends Component {
-
+    state = {
+        open: false,
+        body: '',
+        errors: {}
+    };
 }
 
 PostScream.propTypes = {
