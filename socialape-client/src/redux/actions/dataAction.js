@@ -1,4 +1,4 @@
-import { SET_SCREAMS, LOADING_DATA, LIKE_SCREAM, UNLIKE_SCREAM, DELETE_SCREAM, POST_SCREAM, CLEAR_ERRORS, LOADING_UI } from '../types';
+import { SET_SCREAMS, LOADING_DATA, LIKE_SCREAM, UNLIKE_SCREAM, DELETE_SCREAM, POST_SCREAM, CLEAR_ERRORS, LOADING_UI, SET_ERRORS } from '../types';
 import axios from 'axios';
 
 export const getScreams = () => dispatch => {

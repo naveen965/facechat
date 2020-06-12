@@ -15,9 +15,19 @@ import MyButton from '../util/MyButton';
 import { connect } from 'react-redux';
 import { postScream } from '../redux/actions/dataAction';
 
-const styles = (theme) => ({
-    ...theme
-})
+const styles  = ({
+    submitButton: {
+        position: 'relative'
+    },
+    progressSpinner: {
+        position: 'absolute'
+    },
+    closeButton: {
+        position: 'absolute',
+        left: '90%',
+        top: '10%'
+    }
+});
 
 class PostScream extends Component {
     state = {
@@ -31,6 +41,13 @@ class PostScream extends Component {
     handleOpen = () => {
         this.setState({ open: false });
     };
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.postScream({ body: this.state.body });
+    }
     render() {
         const { errors } = this.state;
         const { classes, UI: { loading } } = this.props;
@@ -82,4 +99,4 @@ const mapStateToProps = (state) => ({
     UI: state.UI
 })
 
-export default connect((mapStateToProps, { postScream }))(withStyles(styles)(PostScream));
+export default connect(mapStateToProps, { postScream })(withStyles(styles)(PostScream));
