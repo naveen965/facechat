@@ -35,11 +35,22 @@ class PostScream extends Component {
         body: '',
         errors: {}
     };
+    componentWillReceiveProps(nextProps)  {
+        if (nextProps.UI.errors) {
+            this.setState({
+                errors: nextProps.UI.errors
+            });
+        };
+        if (!nextProps.UI.errors && !nextProps.UI.loading) {
+            this.setState({ body: '' });
+            this.handleClose();
+        }
+    }
     handleOpen = () => {
         this.setState({ open: true });
     };
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({ open: false, errors: {} });
     };
     handleChange = (event) => {
         this.setState({ [event.target.name]: event.target.value });
