@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 
 import {
     Grid,
-    Button,
-    TextField,
     Dialog,
     DialogContent,
     DialogTitle,
@@ -21,7 +19,7 @@ import UnfoldMore from '@material-ui/icons/UnfoldMore';
 import { connect } from 'react-redux';
 import { getScream } from '../redux/actions/dataAction';
 
-const styles = {
+const styles = ({
     form: {
         textAlign: 'center',
     },
@@ -67,7 +65,7 @@ const styles = {
         position: 'absolute',
         left: '90%'
     }
-}
+});
 
 class ScreamDialog extends Component {
     state = {
@@ -98,7 +96,7 @@ class ScreamDialog extends Component {
             <CircularProgress size={100}/>
         ) : (
             <Grid container spacing={10}>
-                <Grid item sm={6}>
+                <Grid item sm={5}>
                     <img src={userImage} alt="Profile" className={classes.profileImage}/>
                 </Grid>
                 <Grid item sm={7}>
