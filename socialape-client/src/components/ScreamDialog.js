@@ -9,7 +9,7 @@ import {
     Grid,
     Dialog,
     DialogContent,
-    DialogTitle,
+    // DialogTitle,
     CircularProgress,
     Typography
 } from '@material-ui/core';
@@ -20,34 +20,6 @@ import { connect } from 'react-redux';
 import { getScream } from '../redux/actions/dataAction';
 
 const styles = ({
-    form: {
-        textAlign: 'center',
-    },
-    image: {
-        margin: '20px auto 20px auto'
-    },
-    pageTitle: {
-        margin: '10px auto 10px auto'
-    },
-    button: {
-        width: '100%',
-        marginTop: 20,
-        position: 'relative'
-    },
-    TextField: {
-        margin: '10px auto 10px auto'
-    },
-    customError: {
-        color: 'red',
-        fontSize: '0.8rem',
-        marginTop: 10
-    },
-    progress: {
-        position: 'absolute'
-    },
-    smll: {
-        marginTop: 20,
-    },
     invisibleSeparator: {
         border: 'none',
         margin: 4
@@ -56,10 +28,11 @@ const styles = ({
         maxWidth: 200,
         height: 200,
         borderRadius: '50%',
-        objectFit: 'cover'
+        objectFit: 'cover',
+        padding: 20
     },
     dialogContent: {
-        padding: 20
+        padding: 40
     },
     closeButton: {
         position: 'absolute',
@@ -82,20 +55,20 @@ class ScreamDialog extends Component {
         const {
             classes,
             scream: { 
-                screamId,
+                // screamId,
                 body,
                 createdAt,
-                likeCount,
-                commentCount,
+                // likeCount,
+                // commentCount,
                 userImage,
                 userHandle
             },
             UI: { loading } 
         } = this.props;
         const dialogMarkup = loading ? (
-            <CircularProgress size={100}/>
+            <CircularProgress size={50}/>
         ) : (
-            <Grid container spacing={10}>
+            <Grid container>
                 <Grid item sm={5}>
                     <img src={userImage} alt="Profile" className={classes.profileImage}/>
                 </Grid>
