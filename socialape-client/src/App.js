@@ -14,7 +14,7 @@ import { logoutUser, getUserData } from './redux/actions/userAction';
 import home from './pages/home';
 import login from './pages/login';
 import signup from './pages/signup';
-import Navbar from './components/navbar';
+import Navbar from './components/layout/navbar';
 import axios from 'axios';
 
 const theme = createMuiTheme (themeFile);

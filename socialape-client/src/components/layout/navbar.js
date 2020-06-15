@@ -8,7 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 import Notifications from '@material-ui/icons/Notifications';
-import PostScream from './PostScream';
+import PostScream from '../scream/PostScream';
 
 class navbar extends Component {
     render() {

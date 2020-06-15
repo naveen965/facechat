@@ -14,7 +14,7 @@ import dayjs from 'dayjs';
 import EditIcon from '@material-ui/icons/Edit';
 import { logoutUser, uploadImage } from '../../redux/actions/userAction';
 import { KeyboardReturn } from '@material-ui/icons';
-import EditDetails from '../components/EditDetails';
+import EditDetails from '../profile/EditDetails';
 import MyButton from '../../util/MyButton';
 
 const styles = (theme) => ({
