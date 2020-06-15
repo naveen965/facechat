@@ -20,6 +20,7 @@ import { connect } from 'react-redux';
 import { getScream } from '../../redux/actions/dataAction';
 import LikeButton from './LikeButton';
 import Comments from './Comments';
+import CommentForm from './CommentForm';
 
 const styles = ({
     invisibleSeparator: {
@@ -111,6 +112,7 @@ class ScreamDialog extends Component {
                     <span>{commentCount} Comments</span>
                 </Grid>
                 <hr className={classes.visibleSeparator}/>
+                <CommentForm screamId={screamId}/>
                 <Comments comments={comments}/>
             </Grid>
         );
