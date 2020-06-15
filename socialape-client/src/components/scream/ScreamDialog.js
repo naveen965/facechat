@@ -19,11 +19,17 @@ import ChatIcon from '@material-ui/icons/Chat'
 import { connect } from 'react-redux';
 import { getScream } from '../../redux/actions/dataAction';
 import LikeButton from './LikeButton';
+import Comments from './Comments';
 
 const styles = ({
     invisibleSeparator: {
         border: 'none',
         margin: 4
+    },
+    visibleSeparator: {
+        width: '100%',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        marginBottom: 20
     },
     profileImage: {
         maxWidth: 200,
@@ -71,7 +77,8 @@ class ScreamDialog extends Component {
                 likeCount,
                 commentCount,
                 userImage,
-                userHandle
+                userHandle,
+                comments
             },
             UI: { loading } 
         } = this.props;
@@ -103,8 +110,10 @@ class ScreamDialog extends Component {
                     </MyButton>
                     <span>{commentCount} Comments</span>
                 </Grid>
+                <hr className={classes.visibleSeparator}/>
+                <Comments comments={comments}/>
             </Grid>
-        )
+        );
         return (
             <Fragment>
                 <MyButton onClick={this.handleOpen} tip="Expand scream" tipClassName={classes.expandButton}>
