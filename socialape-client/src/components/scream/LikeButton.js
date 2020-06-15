@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FavoriteBorder } from '@material-ui/icons';
 import { connect } from 'react-redux';
-import { likeScream, unlikeScream } from '../redux/actions/dataAction';
+import { likeScream, unlikeScream } from '../../redux/actions/dataAction';
 
 export class LikeButton extends Component {
     likedScream = () => {
@@ -27,11 +27,11 @@ export class LikeButton extends Component {
     render() {
         const { authenticated } = this.props.user;
         const likeButton = !authenticated ? (
-            <MyButton tip="Like">
-                <Link to="/login">
+            <Link to="/login">
+                <MyButton tip="Like">
                     <FavoriteBorder color="primary"/>
-                </Link>
-            </MyButton>
+                </MyButton>
+            </Link>
         ) : (
             this.likedScream() ? (
                 <MyButton tip="Undo Like" onClick={this.unlikeScream}>

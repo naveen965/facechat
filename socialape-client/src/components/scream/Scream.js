@@ -9,7 +9,7 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import dayjs from 'dayjs';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 import ChatIcon from '@material-ui/icons/Chat';
 import DeleteScream from './DeleteScream';
 import ScreamDialog from './ScreamDialog';

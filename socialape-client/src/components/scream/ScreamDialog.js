@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 import dayjs from 'dayjs';
 import { Link } from 'react-router-dom';
 
@@ -9,15 +9,16 @@ import {
     Grid,
     Dialog,
     DialogContent,
-    // DialogTitle,
     CircularProgress,
     Typography
 } from '@material-ui/core';
 
 import CloseIcon from '@material-ui/icons/Close';
 import UnfoldMore from '@material-ui/icons/UnfoldMore';
+import ChatIcon from '@material-ui/icons/Chat'
 import { connect } from 'react-redux';
-import { getScream } from '../redux/actions/dataAction';
+import { getScream } from '../../redux/actions/dataAction';
+import LikeButton from './LikeButton';
 
 const styles = ({
     invisibleSeparator: {
@@ -64,11 +65,11 @@ class ScreamDialog extends Component {
         const {
             classes,
             scream: { 
-                // screamId,
+                screamId,
                 body,
                 createdAt,
-                // likeCount,
-                // commentCount,
+                likeCount,
+                commentCount,
                 userImage,
                 userHandle
             },
@@ -95,6 +96,12 @@ class ScreamDialog extends Component {
                     <Typography variant="body1">
                         {body}
                     </Typography>
+                    <LikeButton screamId={screamId}/>
+                    <span>{likeCount} likes</span>
+                    <MyButton tip="comments">
+                        <ChatIcon color="primary"/>
+                    </MyButton>
+                    <span>{commentCount} Comments</span>
                 </Grid>
             </Grid>
         )

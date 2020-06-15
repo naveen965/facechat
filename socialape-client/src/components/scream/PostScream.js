@@ -11,9 +11,9 @@ import {
 } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
-import MyButton from '../util/MyButton';
+import MyButton from '../../util/MyButton';
 import { connect } from 'react-redux';
-import { postScream, clearErrors } from '../redux/actions/dataAction';
+import { postScream, clearErrors } from '../../redux/actions/dataAction';
 
 const styles  = ({
     submitButton: {
