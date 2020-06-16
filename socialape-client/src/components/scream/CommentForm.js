@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Button, Grid, TextField } from '@material-ui/core';
 import { connect } from 'react-redux';
-import submitComment from '../../redux/actions/dataAction';
+import { submitComment } from '../../redux/actions/dataAction';
 
 const styles = ({
-
+    button: {
+        margin: 20
+    }
 });
 
 class CommentForm extends Component {
@@ -17,6 +19,9 @@ class CommentForm extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.UI.errors) {
             this.setState({ errors: nextProps.UI.errors });
+        }
+        if(!nextProps.UI.errors && !nextProps.UI.loading) {
+            this.setState({ body: '' });
         }
     }
     handleChange = (event) => {
