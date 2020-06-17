@@ -22,13 +22,14 @@ class user extends Component {
         const screamId = this.props.match.params.screamId;
         if (screamId) this.setState({ screamIdParam: screamId });
         this.props.getUserData(handle);
-        axios.get(`/user/${handle}`)
-            .then(res => {
+        axios
+            .get(`/user/${handle}`)
+            .then((res) => {
                 this.setState({
                     profile: res.data.user
                 });
             })
-            .catch(err => console.log(err));
+            .catch((err) => console.log(err));
     };
     render() {
         const { screams, loading } = this.props.data;
