@@ -45,8 +45,8 @@ class Comments extends Component {
                                             <Typography variant="body2" color="textSecondary">
                                                 {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
                                             </Typography>
-                                            <hr className={classes.invisibleSeparator}/>
                                             <Typography variant="body1">{body}</Typography>
+                                            <hr className={classes.invisibleSeparator}/>
                                         </div>
                                     </Grid>
                                 </Grid>
@@ -56,7 +56,9 @@ class Comments extends Component {
                             )}
                         </Fragment>
                     );
-                })}
+                    }
+                    )
+                }
             </Grid>
         )
     }

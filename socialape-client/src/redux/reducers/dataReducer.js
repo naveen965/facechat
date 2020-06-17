@@ -6,7 +6,8 @@ import {
     DELETE_SCREAM,
     POST_SCREAM,
     SET_SCREAM,
-    SUBMIT_COMMENT
+    SUBMIT_COMMENT,
+    MARK_NOTIFICATIONS_READ
 } from '../types';
 
 const initialState = {
