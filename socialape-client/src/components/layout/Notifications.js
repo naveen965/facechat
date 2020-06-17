@@ -39,7 +39,7 @@ class Notifications extends Component {
         dayjs.extend(relativeTime);
         let notificationIcon;
         if (notifications && notifications.length > 0) {
-             notifications.filter(not => not.read === false).length > 0
+            notifications.filter(not => not.read === false).length > 0
                 ? notificationIcon = (
                     <Badge badgeContent={notifications.filter(not => not.read === false).length}
                         color="secondary"

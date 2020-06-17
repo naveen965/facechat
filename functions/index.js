@@ -113,7 +113,7 @@ exports.onUserImageChange = functions.region('us-central1').firestore.document('
                     return batch.commit();
                 });
         } else return true;
-    })
+    });
 
 exports.onScreamDelete = functions.region('us-central1').firestore.document('/screams/{screamId}')
     .onDelete((snapshot, context) => {

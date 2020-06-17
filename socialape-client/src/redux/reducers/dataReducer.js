@@ -6,8 +6,7 @@ import {
     DELETE_SCREAM,
     POST_SCREAM,
     SET_SCREAM,
-    SUBMIT_COMMENT,
-    MARK_NOTIFICATIONS_READ
+    SUBMIT_COMMENT
 } from '../types';
 
 const initialState = {
@@ -71,11 +70,6 @@ export default function(state = initialState, action){
                         action.payload, ...state.scream.comments
                     ]
                 }
-            };
-        case MARK_NOTIFICATIONS_READ:
-            state.notifications.forEach((not) => (not.read = true))
-            return {
-                ...state
             };
         default:
             return state;
