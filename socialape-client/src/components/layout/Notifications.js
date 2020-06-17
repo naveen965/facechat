@@ -32,7 +32,7 @@ class Notifications extends Component {
             .filter(not => !not.read)
             .map(not => not.notificationId);
         this.props.markNotificationsRead(unreadNotificationsIds);
-    }
+    };
     render() {
         const notifications = this.props.notifications;
         const anchorEl = this.state.anchorEl;
@@ -55,7 +55,7 @@ class Notifications extends Component {
         }
         let notificationsMarkup = notifications && notifications.length > 0 ? (
             notifications.map(not => {
-                const verb = not.type === 'like' ? 'liked' : 'comment on';
+                const verb = not.type === 'like' ? 'liked' : 'commented on';
                 const time = dayjs(not.createdAt).fromNow();
                 const iconColor = not.read ? 'primary' : 'secondary';
                 const icon = not.type === 'like' ? (
