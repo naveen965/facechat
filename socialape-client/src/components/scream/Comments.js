@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import withStyles from '@material-ui/core/styles/withStyles';
 import { Grid, Typography } from '@material-ui/core';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import dayjs from 'dayjs';
 
@@ -23,7 +22,7 @@ class Comments extends Component {
         const { comments, classes } = this.props;
         return (
             <Grid container>
-                {comments.map((comment, index) => {
+                {comments && comments.length >0 && comments.map((comment, index) => {
                     const { body, createdAt, userImage, userHandle } = comment;
                     return (
                         <Fragment key={createdAt}>
@@ -65,11 +64,7 @@ class Comments extends Component {
 }
 
 Comments.propTypes = {
-    comments: PropTypes.array.isRequired
+    comments: PropTypes.array
 }
 
-const mapStateToProps = (state) => ({
-
-})
-
-export default connect(mapStateToProps)(withStyles(styles)(Comments));
+export default withStyles(styles)(Comments);

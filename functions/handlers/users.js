@@ -222,9 +222,25 @@ exports.uploadImage = (req, res) => {
     busboy.end(req.rawBody);
 };
 
+// exports.markNotificationsRead = (req, res) => {
+//     let batch = db.batch();
+//     req.body.forEach(notificationId => {
+//         const notification = db.doc(`/notifications/${notificationId}`);
+//         batch.update(notification, { read: true });
+//     });
+//     batch.commit()
+//         .then(() => {
+//             return res.json({ message: 'Notification marked read' });
+//         })
+//         .catch(err => {
+//             console.error(err);
+//             return res.status(500).json({ error: err.code });
+//         });
+// };
+
 exports.markNotificationsRead = (req, res) => {
     let batch = db.batch();
-    req.body.forEach(notificationId => {
+    req.body.notificationIds.forEach(notificationId => {
         const notification = db.doc(`/notifications/${notificationId}`);
         batch.update(notification, { read: true });
     });
@@ -234,6 +250,6 @@ exports.markNotificationsRead = (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            return res.status(500).json({ error: err.code });
+            return res.status(500).json({ error: err.message });
         });
 };
