@@ -62,7 +62,7 @@ export default function(state = initialState, action) {
                     read: true
                 };
             });
-            // state.notifications.forEach((not) => (not.read = true))
+            // state.notifications.forEach((not) => (not.read = true));
             return {
                 ...state,
                 notifications

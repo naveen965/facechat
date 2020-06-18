@@ -240,7 +240,7 @@ exports.uploadImage = (req, res) => {
 
 exports.markNotificationsRead = (req, res) => {
     let batch = db.batch();
-    req.body.notificationIds.forEach(notificationId => {
+    req.body.map(notificationId => {
         const notification = db.doc(`/notifications/${notificationId}`);
         batch.update(notification, { read: true });
     });
