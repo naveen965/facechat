@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
-const app = require('express')();
+const express = require('express');
+const app = express();
 const FBauth = require('./util/fbAuth');
 
 const { db } = require('./util/admin');
@@ -22,6 +23,8 @@ const {
     getUserDetails,
     markNotificationsRead
 } = require('./handlers/users');
+
+app.use(express.json());
 
 app.post('/user/image', FBauth, uploadImage);
 app.post('/user', FBauth, addUserDetails);
