@@ -7,6 +7,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { connect } from 'react-redux';
 import { getUserData } from '../redux/actions/dataAction';
 import StaticProfile from '../components/profile/StaticProfile';
+import ScreamSkeleton from '../util/ScreamSkeleton';
 
 const styles = ({
 
@@ -35,7 +36,7 @@ class user extends Component {
         const { screams, loading } = this.props.data;
         const { screamIdParam } = this.state;
         const screamsMarkup = loading ? (
-            <p>Loading data...</p>
+            <ScreamSkeleton/>
         ) : screams === null ? (
             <p>No screams from this user</p>
         ) : !screamIdParam ? (

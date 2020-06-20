@@ -17,7 +17,7 @@ const initialState = {
 };
 
 export default function(state = initialState, action) {
-    switch(action.type){
+    switch(action.type) {
         case SET_AUTHENTICATED:
             return {
                 ...state,
@@ -55,17 +55,17 @@ export default function(state = initialState, action) {
                 )
             };
         case MARK_NOTIFICATIONS_READ:
-            const notifications = state.notifications.forEach((not) => {
-                // (not.read = true)
-                return {
-                    ...not,
-                    read: true
-                };
-            });
-            // state.notifications.forEach((not) => (not.read = true));
+            // const notifications = state.notifications.forEach((not) => {
+            //     // (not.read = true)
+            //     return {
+            //         ...not,
+            //         read: true
+            //     };
+            // });
+            state.notifications.forEach((not) => (not.read = true));
             return {
                 ...state,
-                notifications
+                // notifications
             };
         default:
             return state;
