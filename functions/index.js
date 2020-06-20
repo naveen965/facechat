@@ -2,6 +2,7 @@ const functions = require('firebase-functions');
 const express = require('express');
 const app = express();
 const FBauth = require('./util/fbAuth');
+const cors = require('cors');
 
 const { db } = require('./util/admin');
 
@@ -25,6 +26,7 @@ const {
 } = require('./handlers/users');
 
 app.use(express.json());
+app.use(cors());
 
 app.post('/user/image', FBauth, uploadImage);
 app.post('/user', FBauth, addUserDetails);
