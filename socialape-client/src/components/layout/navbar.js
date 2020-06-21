@@ -12,7 +12,7 @@ import Notifications from './Notifications';
 
 class navbar extends Component {
     render() {
-        const { authenticated } = this.props
+        const { authenticated } = this.props;
         return (
             <AppBar>
                 <Toolbar className="nav-container">
