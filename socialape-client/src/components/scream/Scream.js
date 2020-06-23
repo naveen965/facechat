@@ -20,7 +20,6 @@ const styles = {
         position: 'relative',
         display: 'flex',
         marginBottom: 20,
-        width: 1000,
         textAlign: 'center',
         flaut: 'center'
     },

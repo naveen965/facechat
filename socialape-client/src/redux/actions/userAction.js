@@ -90,8 +90,11 @@ export const markNotificationsRead = (notificationIds) => (dispatch) => {
                 type: MARK_NOTIFICATIONS_READ
             });
         })
-        .catch(err => {
-            console.log(err);
+        .catch((err) => {
+            dispatch({
+                type: SET_ERRORS,
+                payload: err.response.data
+            })
             // dispatch({
             //     type: MARK_NOTIFICATIONS_READ
             // });
