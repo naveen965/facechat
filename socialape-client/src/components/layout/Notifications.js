@@ -31,7 +31,7 @@ class Notifications extends Component {
         let unreadNotificationsIds = this.props.notifications
             .filter(not => !not.read)
             .map(not => not.notificationId);
-        this.props.markNotificationsRead(unreadNotificationsIds);
+            this.props.markNotificationsRead(unreadNotificationsIds);
     };
     render() {
         const notifications = this.props.notifications;
@@ -110,7 +110,7 @@ Notifications.propTypes = {
     notifications: PropTypes.array.isRequired
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
     notifications: state.user.notifications
 });
 

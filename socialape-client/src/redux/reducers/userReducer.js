@@ -55,16 +55,9 @@ export default function(state = initialState, action) {
                 )
             };
         case MARK_NOTIFICATIONS_READ:
-            // const notifications = state.notifications.forEach((not) => {
-            //     return {
-            //         ...not,
-            //         read: true
-            //     };
-            // });
-            const notifications = state.notifications.forEach((not) => (not.read = true));
+            state.notifications.forEach((notification) => notification.read = true);
             return {
                 ...state,
-                notifications
             };
         default:
             return state;
