@@ -6,6 +6,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FavoriteBorder } from '@material-ui/icons';
 import { connect } from 'react-redux';
 import { likeScream, unlikeScream } from '../../redux/actions/dataAction';
+//import { PokemonSelector } from 'react-reactions';
 
 export class LikeButton extends Component {
     likedScream = () => {
