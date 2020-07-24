@@ -90,7 +90,9 @@ export const markNotificationsRead = (notificationIds) => (dispatch) => {
                 type: MARK_NOTIFICATIONS_READ
             });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err)
+        });
 }
 
 const setAuthorizationHeader = (token) => {
