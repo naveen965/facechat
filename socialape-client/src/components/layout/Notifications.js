@@ -107,7 +107,7 @@ class Notifications extends Component {
             </Fragment>
         )
     }
-};
+}
 
 Notifications.propTypes = {
     markNotificationsRead: PropTypes.func.isRequired,
