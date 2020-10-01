@@ -30,7 +30,7 @@ class Notifications extends Component {
         this.setState({ anchorEl: null });
     };
     onMenuOpened = () => {
-        // console.log(this.props.notifications);
+        // console.log(this.props.notifications); // notification read err fix using this command
         let unreadNotificationsIds = this.props.notifications
             .filter(not => !not.read)
             .map(not => not.notificationsId);
