@@ -18,7 +18,7 @@ import user from './pages/user';
 import Navbar from './components/layout/navbar';
 import axios from 'axios';
 
-const theme = createMuiTheme (themeFile);
+const theme = createMuiTheme(themeFile);
 
 axios.defaults.baseURL = "https://us-central1-socialape-48ee7.cloudfunctions.net/api";
 
@@ -38,17 +38,17 @@ if (token) {
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider theme={ theme }>
+      <MuiThemeProvider theme={theme}>
         <Provider store={store}>
           <Router>
             <div className="container">
-              <Navbar/>
+              <Navbar />
               <Switch>
-                <Route exact path="/" component={home}/>
-                <AuthRoute exact path="/login" component={login}/>
-                <AuthRoute exact path="/signup" component={signup}/>
-                <Route exact path="/users/:handle" component={user}/>
-                <Route exact path="/users/:handle/scream/:screamId" component={user}/>
+                <Route exact path="/" component={home} />
+                <AuthRoute exact path="/login" component={login} />
+                <AuthRoute exact path="/signup" component={signup} />
+                <Route exact path="/users/:handle" component={user} />
+                <Route exact path="/users/:handle/scream/:screamId" component={user} />
               </Switch>
             </div>
           </Router>
