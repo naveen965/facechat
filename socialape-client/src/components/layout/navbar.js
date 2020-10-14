@@ -35,7 +35,7 @@ class navbar extends Component {
             </AppBar>
         )
     }
-};
+}
 
 navbar.propTypes = {
     authenticated: PropTypes.bool.isRequired

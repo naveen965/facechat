@@ -21,7 +21,7 @@ const styles = {
         display: 'flex',
         marginBottom: 20,
         textAlign: 'center',
-        flaut: 'center'
+        flaut: 'center',
     },
     image: {
         minWidth: 200

@@ -89,7 +89,7 @@ class EditDetails extends Component {
     componentDidMount() {
         const { credentials } = this.props;
         this.mapUserDetailsToState(credentials);
-    };
+    }
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -165,7 +165,7 @@ class EditDetails extends Component {
             </Fragment>
         )
     }
-};
+}
 
 EditDetails.propTypes = {
     editUserDetails: PropTypes.func.isRequired,
