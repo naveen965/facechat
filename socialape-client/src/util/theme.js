@@ -3,7 +3,7 @@ export default {
     primary: {
       light: '#4D8DCD',
       main: '#1976D2',
-      dark: '#035AB0',
+      dark: '#004991',
       contrastText: '#fff'
     },
     secondary: {
@@ -98,5 +98,5 @@ export default {
       width: '50%',
       backgroundColor: 'rgba(0, 0, 0, 0.6)',
       marginBottom: 10
-  }
+  },
 }

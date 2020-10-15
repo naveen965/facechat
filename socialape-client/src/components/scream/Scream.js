@@ -20,8 +20,9 @@ const styles = {
         position: 'relative',
         display: 'flex',
         marginBottom: 20,
+        marginLeft: 85,
         textAlign: 'center',
-        flaut: 'center',
+        // flaut: 'center',
     },
     image: {
         minWidth: 200
@@ -58,7 +59,7 @@ class Scream extends Component {
             <Card className={classes.card}>
                 <CardMedia image={userImage} title="Profile image" className={classes.image}/>
                 <CardContent className={classes.content}>
-                    <Typography variant="h5" component={Link} to={`/users/${userHandle}`} color="primary">{userHandle}</Typography>
+                    <Typography variant="h5" component={Link} to={`/users/${userHandle}`} color="seconda">{userHandle}</Typography>
                     {deleteButton}
                     <Typography variant="body2" color="textSecondary">{dayjs(createdAt).fromNow()}</Typography>
                     <Typography variant="body1">{body}</Typography>

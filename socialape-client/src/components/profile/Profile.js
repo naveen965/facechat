@@ -20,7 +20,8 @@ import ProfileSkeleton from '../../util/ProfileSkeleton';
 
 const styles = (theme) => ({
     paper: {
-        padding: 20
+        padding: 20,
+        marginRight: 85
     },
     profile: {
         '& .image-wrapper': {
