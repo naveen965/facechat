@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getScreams } from '../redux/actions/dataAction';
 import ScreamSkeleton from '../util/ScreamSkeleton';
+import Naveen from '../util/Naveen';
 
 class home extends Component {
     componentDidMount () {
@@ -25,6 +26,7 @@ class home extends Component {
                 </Grid>
                 <Grid item sm={4} xs={12}>
                     <Profile/>
+                    <Naveen/>
                 </Grid>
             </Grid>
         )
