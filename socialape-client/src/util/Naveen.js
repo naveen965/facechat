@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   avatar: {
-    backgroundColor: red[500],
+    backgroundColor: red[100],
   },
 }));
 
@@ -65,7 +65,7 @@ export default function RecipeReviewCard() {
       />
       <CardMedia
         className={classes.media}
-        image="/components/images/icon.png"
+        // image="/components/images/ss.png"
         title="Paella dish"
       />
       <CardContent>
