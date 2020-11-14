@@ -43,7 +43,7 @@ const styles = {
 }
 
 class signup extends Component {
-    constructor () {
+    constructor() {
         super();
         this.state = {
             email: '',
@@ -85,9 +85,9 @@ class signup extends Component {
         const { errors } = this.state;
         return (
             <Grid container className={classes.form}>
-                <Grid item sm/>
+                <Grid item sm />
                 <Grid item sm>
-                    <img src={Appicon} alt="user" className={classes.image}/>
+                    <img src={Appicon} alt="user" className={classes.image} />
                     <Typography variant="h2" className={classes.pageTitle}>
                         Signup
                     </Typography>
@@ -97,25 +97,25 @@ class signup extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             value={this.state.email}
-                            onChange={this.handleChange} fullWidth/>
+                            onChange={this.handleChange} fullWidth />
                         <TextField id="password" name="password" type="password" label="Password"
                             className={classes.TextField}
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             value={this.state.password}
-                            onChange={this.handleChange} fullWidth/>
+                            onChange={this.handleChange} fullWidth />
                         <TextField id="confiremPassword" name="confiremPassword" type="password" label="Confirm Password"
                             className={classes.TextField}
                             helperText={errors.confiremPassword}
                             error={errors.confiremPassword ? true : false}
                             value={this.state.confiremPassword}
-                            onChange={this.handleChange} fullWidth/>
+                            onChange={this.handleChange} fullWidth />
                         <TextField id="handle" name="handle" type="text" label="Handle"
                             className={classes.TextField}
                             helperText={errors.handle}
                             error={errors.handle ? true : false}
                             value={this.state.handle}
-                            onChange={this.handleChange} fullWidth/>
+                            onChange={this.handleChange} fullWidth />
                         {errors.general && (
                             <Typography variant="body2" className={classes.customError}>
                                 {errors.general}
@@ -125,18 +125,18 @@ class signup extends Component {
                             className={classes.button}
                             disabled={loading}
                         >
-                                Signup
+                            Signup
                                 {loading && (
-                                    <CircularProgress size={30} className={classes.progress}/>
-                                )}
-                            </Button>
-                        <br/>
-                        <div  className={classes.smll}>
+                                <CircularProgress size={30} className={classes.progress} />
+                            )}
+                        </Button>
+                        <br />
+                        <div className={classes.smll}>
                             <small>Already have an account ? <Link to="/login">login here</Link></small>
                         </div>
                     </form>
                 </Grid>
-                <Grid item sm/>
+                <Grid item sm />
             </Grid>
         )
     }
