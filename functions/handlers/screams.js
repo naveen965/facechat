@@ -6,7 +6,7 @@ exports.getAllScreams = (req, res) => {
         .get()
         .then(data => {
             let screams = [];
-            data.forEach (doc => {
+            data.forEach(doc => {
                 screams.push({
                     screamId: doc.id,
                     body: doc.data().body,
@@ -135,13 +135,13 @@ exports.likeScream = (req, res) => {
                     screamId: req.params.screamId,
                     userHandle: req.user.handle
                 })
-                .then(() => {
-                    screamData.likeCount++
-                    return screamDocument.update({ likeCount: screamData.likeCount });
-                })
-                .then(() => {
-                    return res.json(screamData);
-                });
+                    .then(() => {
+                        screamData.likeCount++
+                        return screamDocument.update({ likeCount: screamData.likeCount });
+                    })
+                    .then(() => {
+                        return res.json(screamData);
+                    });
             } else {
                 return res.status(400).json({ error: 'Scream already liked' });
             }
@@ -175,15 +175,15 @@ exports.unlikeScream = (req, res) => {
                 return res.status(400).json({ error: 'Scream already liked' });
             } else {
                 return db
-                .doc(`/likes/${data.docs[0].id}`)
-                .delete()
-                .then(() => {
-                    screamData.likeCount--;
-                    return screamDocument.update({ likeCount: screamData.likeCount });
-                })
-                .then(() => {
-                    res.json(screamData);
-                })
+                    .doc(`/likes/${data.docs[0].id}`)
+                    .delete()
+                    .then(() => {
+                        screamData.likeCount--;
+                        return screamDocument.update({ likeCount: screamData.likeCount });
+                    })
+                    .then(() => {
+                        res.json(screamData);
+                    })
             }
         })
         .catch(err => {
