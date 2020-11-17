@@ -9,24 +9,24 @@ import ScreamSkeleton from '../util/ScreamSkeleton';
 import Naveen from '../util/Naveen';
 
 class home extends Component {
-    componentDidMount () {
+    componentDidMount() {
         this.props.getScreams();
     }
     render() {
         const { screams, loading } = this.props.data;
         let recentScreamsMarkup = !loading ? (
-            screams.map((scream) => <Scream key={scream.screamId} scream={ scream } />)
+            screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
         ) : (
-            <ScreamSkeleton/>
-        );
+                <ScreamSkeleton />
+            );
         return (
             <Grid container spacing={10}>
                 <Grid item sm={8} xs={12}>
                     {recentScreamsMarkup}
                 </Grid>
                 <Grid item sm={4} xs={12}>
-                    <Profile/>
-                    <Naveen/>
+                    <Profile />
+                    <Naveen />
                 </Grid>
             </Grid>
         )
