@@ -19,7 +19,7 @@ class user extends Component {
         profile: null,
         screamIdParam: null
     };
-    componentDidMount () {
+    componentDidMount() {
         const handle = this.props.match.params.handle;
         const screamId = this.props.match.params.screamId;
         if (screamId) this.setState({ screamIdParam: screamId });
@@ -37,18 +37,18 @@ class user extends Component {
         const { screams, loading } = this.props.data;
         const { screamIdParam } = this.state;
         const screamsMarkup = loading ? (
-            <ScreamSkeleton/>
+            <ScreamSkeleton />
         ) : screams === null ? (
             <p>No screams from this user</p>
         ) : !screamIdParam ? (
-            screams.map(scream => <Scream key={scream.screamId} scream={scream}/>)
+            screams.map(scream => <Scream key={scream.screamId} scream={scream} />)
         ) : (
-            screams.map(scream => {
-                if (scream.screamId !== screamIdParam)
-                    return <Scream key={scream.screamId} scream={scream}/>
-                else return <Scream key={scream.screamId} scream={scream} openDialog/>
-            })
-        );
+                        screams.map(scream => {
+                            if (scream.screamId !== screamIdParam)
+                                return <Scream key={scream.screamId} scream={scream} />
+                            else return <Scream key={scream.screamId} scream={scream} openDialog />
+                        })
+                    );
         return (
             <Grid container spacing={10}>
                 <Grid item sm={8} xs={12}>
@@ -56,10 +56,10 @@ class user extends Component {
                 </Grid>
                 <Grid item sm={4} xs={12}>
                     {this.state.profile === null ? (
-                        <ProfileSkeleton/>
+                        <ProfileSkeleton />
                     ) : (
-                        <StaticProfile profile={this.state.profile}/>
-                    )}
+                            <StaticProfile profile={this.state.profile} />
+                        )}
                 </Grid>
             </Grid>
         )
