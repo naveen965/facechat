@@ -43,7 +43,7 @@ const styles = {
 }
 
 class login extends Component {
-    constructor () {
+    constructor() {
         super();
         this.state = {
             email: '',
@@ -78,9 +78,9 @@ class login extends Component {
         const { errors } = this.state;
         return (
             <Grid container className={classes.form}>
-                <Grid item sm/>
+                <Grid item sm />
                 <Grid item sm>
-                    <img src={Appicon} alt="user" className={classes.image}/>
+                    <img src={Appicon} alt="user" className={classes.image} />
                     <Typography variant="h2" className={classes.pageTitle}>
                         Login
                     </Typography>
@@ -90,13 +90,13 @@ class login extends Component {
                             helperText={errors.email}
                             error={errors.email ? true : false}
                             value={this.state.email}
-                            onChange={this.handleChange} fullWidth/>
+                            onChange={this.handleChange} fullWidth />
                         <TextField id="password" name="password" type="password" label="Password"
                             className={classes.TextField}
                             helperText={errors.password}
                             error={errors.password ? true : false}
                             value={this.state.password}
-                            onChange={this.handleChange} fullWidth/>
+                            onChange={this.handleChange} fullWidth />
                         {errors.general && (
                             <Typography variant="body2" className={classes.customError}>
                                 {errors.general}
@@ -106,18 +106,18 @@ class login extends Component {
                             className={classes.button}
                             disabled={loading}
                         >
-                                Login
+                            Login
                                 {loading && (
-                                    <CircularProgress size={30} className={classes.progress}/>
-                                )}
-                            </Button>
-                        <br/>
+                                <CircularProgress size={30} className={classes.progress} />
+                            )}
+                        </Button>
+                        <br />
                         <div className={classes.smll}>
                             <small>don't have an account ? <Link to="/signup">sign up here</Link></small>
                         </div>
                     </form>
                 </Grid>
-                <Grid item sm/>
+                <Grid item sm />
             </Grid>
         )
     }
