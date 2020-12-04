@@ -10,9 +10,7 @@ import StaticProfile from '../components/profile/StaticProfile';
 import ScreamSkeleton from '../util/ScreamSkeleton';
 import ProfileSkeleton from '../util/ProfileSkeleton';
 
-const styles = ({
-
-})
+const styles = ({})
 
 class user extends Component {
     state = {
