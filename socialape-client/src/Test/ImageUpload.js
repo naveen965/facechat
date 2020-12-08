@@ -18,6 +18,8 @@ class ImageUpload extends Component {
             this.setState(() => ({ image }));
         }
     }
+// I have to create a function which is handleUpload
+
     handleUpload = () => {
         // const { image } = this.state;
         // const uploadTask = storage.ref(`images/${image.name}`).put(image);
