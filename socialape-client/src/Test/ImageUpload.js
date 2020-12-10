@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import { storage } from '../firebase';
+import { uploadImage } from '../redux/actions/userAction';
 
 class ImageUpload extends Component {
     constructor(props) {
@@ -18,23 +19,23 @@ class ImageUpload extends Component {
             this.setState(() => ({ image }));
         }
     }
-// I have to create a function which is handleUpload
+    // I have to create a function which is handleUpload
 
     handleUpload = () => {
-        // const { image } = this.state;
-        // const uploadTask = storage.ref(`images/${image.name}`).put(image);
-        // uploadTask.on('state_changed',
-        //     (snapshot) => {
-        //         const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-        //         this.setState({ progress });
-        //     }, (error) => {
-        //         console.log(error);
-        //     }, () => {
-        //         storage.ref('images').child(image.name).getDownloadURL().then(url => {
-        //             console.log(url);
-        //             this.setState({ url });
-        //         })
-        //     });
+        const { image } = this.state;
+        const uploadTask = uploadImage.ref(`images/${image.name}`).put(image);
+        uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                this.setState({ progress });
+            }, (error) => {
+                console.log(error);
+            }, () => {
+                storage.ref('images').child(image.name).getDownloadURL().then(url => {
+                    console.log(url);
+                    this.setState({ url });
+                })
+            });
     }
     render() {
         const style = {
@@ -57,4 +58,13 @@ class ImageUpload extends Component {
     }
 }
 
-export default ImageUpload;
+login.propTypes = {
+    uploadImage: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+});
+
+const mapActionsToProps = {}
+
+export default connect(mapStateToProps, mapActionsToProps)(withStyles(styles)(ImageUpload));
