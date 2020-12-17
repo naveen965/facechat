@@ -19,6 +19,7 @@ class ImageUpload extends Component {
             this.setState(() => ({ image }));
         }
     }
+    
     // I have to create a function which is handleUpload
 
     handleUpload = () => {
@@ -62,7 +63,7 @@ login.propTypes = {
     uploadImage: PropTypes.func.isRequired,
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = () => ({
 });
 
 const mapActionsToProps = {}
